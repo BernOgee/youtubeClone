@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
+
+  <!-- Css -->
+  <link rel="stylesheet" href="youtube.css">
+
+  <!-- Font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="start">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-bars"></i></a>
+        <a class="navbar-brand" href="#"><i class="fa-brands fa-youtube fa-xl red-icon"></i>YouTube<sup>GH</sup></a>
+      </div>
+
+      <div class="middle">
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Search">
+        <button class="input-border"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="ms-3 no-border"><i class="fa-solid fa-microphone"></i></button>
+      </div>
+
+      <div class="end">
+        <button class="no-border"><i class="fa-solid fa-video"></i></button>
+        <button class="no-border"><i class="fa-solid fa-bell"></i></button>
+        <button class="sign-in-button"><i class="fa-solid fa-user me-2"></i>Sign in</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container-fluid">
+      <div class="row mt-3">
+
+        <div class="col-lg-2">
+          <h5 class="mb-3"><i class="fa-solid fa-house me-3"></i>Home</h5>
+          <h5 class="light-class mb-3"><img
+              src="https://static.wikia.nocookie.net/logopedia/images/4/4e/YouTube_Shorts_%28Outline%29.svg/revision/latest/scale-to-width-down/250?cb=20221201213331"
+              alt="" width="24px" height="24px" class="me-3">Shorts</h5>
+          <h5 class="light-class mb-3"><img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEX///8AAAClpaVhYWErKyt0dHSEhITc3Nzl5eX19fW0tLSUlJTLy8uioqKAgIDr6+u4uLhNTU0jIyPz8/MyMjKLi4sMDAybm5scHBzExMRSUlJbW1tubm52dnY7OztGRkYWFhZHR0cwMDA/Pz/W1tYwXPK3AAAER0lEQVR4nO2d6XbaMBBGZVYDDgQISxIgbcn7P2N7UuNFTr1Jo/nc893fOqpuIYwlzYyNIYQQQgghhBBCCCGEEFGe1rOQrJ+CG75HYXkPbjgObDimIQ1pSEMaDtDwspuEZHcJbkgIIYQQQgjxzj5GZO/R8BB4M9iOg0fDlbbMt6xoSEMaqkNDGhb5/+PhZo7IxqMhIYQQQgghRIj5aH2dDoXrejTvprdYvWhv/jrzslq0Fxxpr7Yno7YfYOh0J3+8t/sYb9rrdODWRvBNe5VOvDULYh6rtafxAC7WXqEzcYPhVHuBzlzrBRfFsR/jofBRXHb97+kyH+jzRFmews/HsnZg/iUNX6PixlPLr2n2sHYPtDB/3B9Lf6kddnwM83knEIbsbuVYOyz7qNs+4uGQP0zXDqMhMDRMoSEwNEyhITA0TKEhMDRMoWEnFsvVqeN1ggMKhsnXRBef+eZ1hDd8nEv+SJynakV4w0s218x5rjaENyxcf0xC/DUGN1xMogIBTu6UDaM38WRQbcMoenadsQF9Q+m4AWAYnV9dJ60DwVA2bmAYSsYNEMMoOrlO/C9gDMXihqLh4V5WbLjg64ui4XOl5EYkbiga/vnIknNZUSJu6BqaxaWsGK1d56+gbGjMs6W48x031A3Nxu4l6Tlu6BsWkwn+svUaNxAMTWzHSJ9xA8LQmJmlOO6Q9doAiKFg3EAxlIsbMIZicQPI0OztJF0vcQPJUCZuYBmauf+4AWYoEDfgDE2yKyu63m/gGVbjhts5FaBhNW44nVNBGpqNx7iBaWjMyVLs3xAZ1dDMf5UVez/EwRpW4kbfqAFsaMWNvpsNZMNlaUfVNyziGtrljn3/QVjD17Jf/1IdVMO1Jdh/P4xpOLcLqh2uwiEN7WrOrct9BqBh/NMSdEtJwTNclvWim+NxDZyhXRLvfMUPZphYfmf39D4sQ/sI4+Lh6BvJ0N5O+EmXAjK0t4SerqBgDDcfZT9vaYsohnaMuHu7CsYw9Hy8VgLCUCBG5CAY2jFi6u961CAYftr7CM+pUeqGQjEiR9kwlooRObqGcjEiRzNzrxIjRFpSKBpePV+j/QOcDFof+4jvgDEUK7sAMRQsncEwlCx/QjCUiBE5AIbCbYv0DaVLSbUN5V92q2woXZpnlKtk5csrjYZhfm8WprldeMN92vvt1tSM0hMKHQfir+9psNZ2Kn0xPkfLcG+7YeePFBoCQ8MUGgJDwxQaAkPDFBoCQ8OUbNTQWrIX6+Fqh2Udy8N0IPNJdode37E8O1ypb92OSHaJXv8mlvxwZWht5/PuIvWJ1IVaq+mQXkYbF9480nByGRU4TobCsbjshv8MO+dleDT9Rm60F+hM4x/XUN9I9qDFo8qw3xY0bRas5pgPiZYFmsP9tWn9JPZ6bp4MkE7JnMut9nI7s+2a67hJTofZUDickiE9gRFCCCGEEEIIIYQQQiD5DRf/VsChuDfgAAAAAElFTkSuQmCC"
+              width="24px" height="24px" class="me-3" alt="">Subscription</h5>
+          <hr>
+
+          <div class="row">
+            <h5 class="light-class mb-3"><img
+                src="https://static.vecteezy.com/system/resources/previews/011/994/022/original/simple-video-library-icon-sign-design-free-png.png"
+                alt="" width="24px" height="24px" class="me-3">Library</h5>
+
+            <h5 class="light-class mb-3"><img src="https://seekicon.com/free-icon-download/history_8.svg" alt=""
+                width="24px" height="24px" class="me-3">History</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://icon-library.com/images/youtube-video-icon-png/youtube-video-icon-png-27.jpg" alt=""
+                width="24px" height="24px" class="me-3">Your Videos</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3264833/watch-later-icon-sm.png" alt=""
+                width="24px" height="24px" class="me-3">Watch later</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://static.wikia.nocookie.net/logopedia/images/4/4e/YouTube_Shorts_%28Outline%29.svg/revision/latest/scale-to-width-down/250?cb=20221201213331"
+                alt="" width="24px" height="24px" class="me-3">Shorts</h5>
+
+            <h5 class="light-class mb-2"><i class="fa-solid fa-angle-down fa-xl me-3"></i>Show More</h5>
+          </div>
+
+          <hr>
+
+          <div class="row">
+            <h5 class="light-class mb-3">Subscriptions</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/gNJD_6zm6uM_ZrJqe9CZ24Wi1B6SU101Dy6KXwosTPgg36VQukiXZjnMQ9LSLry8doiTgBfn=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">BeanymanSports</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/ytc/AL5GRJXB8VWrb_icZhpFOXZJLxGWI-56sDEx8gzXC47VDw=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">Cocomelon</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/ytc/AL5GRJXgR7OmBlMbizU4WGYh99IxJsx2c9hx9dchy4it=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">
+              DAZN Fußball Int...</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/ytc/AL5GRJVakzEcqMWih1VGWZk3fkIEN7L6TDo0_xREBuQC=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">Dean Schneider</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/JfcqVinxsIc8dYsPIrp6IBDRMBb420BqVd2bzS9wqcMWBTzmnjUJ74Q0VByY1gUA8p-AYZQzxQ=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">Developedbyed</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/jalTg8mUyHsp4kiCVCFV03tvzuMdyijSIiOY-zDJLlW0iwxSLk3FANBslcXMm7l8FCQ8Uktj=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">Fifa</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/ytc/AL5GRJVEaSJSH_0dNsKcbOE32BKHKUX4wzarP-e8lkaR1Q=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">Indigo Traveller</h5>
+
+            <h5 class="light-class mb-3"><img
+                src="https://yt3.ggpht.com/lkH37D712tiyphnu0Id0D5MwwQ7IRuwgQLVD05iMXlDWO-kDHut3uI4MgIEAQ9StK0qOST7fiA=s88-c-k-c0x00ffffff-no-rj"
+                alt="" width="24px" height="24px" class="me-3">Marques Brownlee</h5>
+
+            <h5 class="light-class mb-2"><i class="fa-solid fa-angle-down fa-xl me-3"></i>Show 98 More</h5>
+          </div>
+
+          <hr>
+          <div class="row">
+            <h5 class="light-class mb-3">Explore</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-solid fa-fire fa-xl me-3"></i>Trending</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-solid fa-music fa-xl me-3"></i>Music</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-solid fa-gamepad fa-xl me-3"></i>Gaming</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-solid fa-trophy fa-xl me-3"></i>Sports</h5>
+
+          </div>
+
+          <hr>
+          <div class="row">
+            <h5 class="light-class mb-3 fw-bold">More from YouTube</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-brands fa-youtube fa-xl me-3 red-icon"></i>YouTube Studio</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-brands fa-youtube fa-xl me-3 red-icon"></i>YouTube Kids</h5>
+          </div>
+
+          <hr>
+          <div class="row">
+            <h5 class="light-class mb-3"><i class="fa-solid fa-gear fa-xl me-3"></i>Settings</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-sharp fa-solid fa-flag fa-xl me-3"></i>Report history</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-solid fa-circle-question fa-xl me-3"></i>Help</h5>
+
+            <h5 class="light-class mb-3"><i class="fa-solid fa-circle-question fa-xl me-3"></i>Send Feedback</h5>
+          </div>
+
+          <hr>
+          <div class="row anchor-row">
+            <div class="">
+              <a href="">About</a>
+              <a href="">Press</a>
+              <a href="">Copyright</a>
+              <br>
+              <a href="">Contact us</a>
+              <a href="">Creators</a>
+              <a href="">Advertise</a>
+              <a href="">Developers</a>
+            </div>
+
+            <div class="mt-2">
+              <a href="">Terms</a>
+              <a href="">Privacy</a>
+              <a href="">Policy & safety</a>
+              <a href="">How YouTube works</a>
+              <a href="">Test new features</a>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="col-lg-10">
+          <div class="row button-row">
+            <button type="button" class="btn btn-light">All</button>
+            <button type="button" class="btn btn-light">Mixes</button>
+            <button type="button" class="btn btn-light">Music</button>
+            <button type="button" class="btn btn-light">Contemporary Worship Music</button>
+            <button type="button" class="btn btn-light">Live</button>
+            <button type="button" class="btn btn-light">Manchester United F.C.</button>
+            <button type="button" class="btn btn-light">Highlight films</button>
+            <button type="button" class="btn btn-light">Gaming</button>
+            <button type="button" class="btn btn-light">African Music</button>
+          </div>
+
+          <div class="row centre-row">
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/BtJQX53Syec/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img src="https://dailyguidenetwork.com/wp-content/uploads/2022/04/Black-Sherif-552x406.jpg" alt=""
+                  width="30px" height="30px" class="lower-image">
+                <h6>Black Sherif - Konongo Zongo (Official Video)</h6>
+              </div>
+              <div class="center-div">
+                <p>Black Sherif<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">10m views <span>.</span> 12 hours ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3"
+                src="https://library.sportingnews.com/styles/crop_style_16_9_mobile_2x/s3/2023-04/Joe%20Willock%20Bruno%20Guimaraes%20Allan%20Saint-Maximin%20Newcastle%20040223.jpg?itok=lnJ6m5Y_"
+                alt="" width="100%" height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJUMKQ71VEhTALTG_qgaNms16TxvAm7AoXDpaBV6oA=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Newcastle United 2 Manchester United 0 | EXTENDED Premier league...</h6>
+              </div>
+              <div class="center-div">
+                <p>Newcastle United<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">270k views <span>.</span> 12 hours ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/0PHUvh_cEGU/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/gNJD_6zm6uM_ZrJqe9CZ24Wi1B6SU101Dy6KXwosTPgg36VQukiXZjnMQ9LSLry8doiTgBfn=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>'I totally agree with Luke Shaw...' Newcastle wanted it more</h6>
+              </div>
+              <div class="center-div">
+                <p>Beanyman Sports<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">300k views <span>.</span> 12 hours ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row centre-row">
+            <div class="col-lg-4">
+              <img class="mb-3"
+                src="https://i.ytimg.com/vi/DzA7E8Putx4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBFexdRlVmB6av2HKeVfFjDvNSJOw"
+                alt="" width="100%" height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ZOM4QJHYyhR_inQ5INemH-8XU6vdk9d4Iu3KEQWHMjxZ5NCSSVOA8yT0y9aX07mlD-HzreVRrw=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>JOHN WICK: CHAPTER 4(2023) Behind-the-scenes (B-roll)|Keanu...</h6>
+              </div>
+              <div class="center-div">
+                <p>FilmIsNow Movie Bloopers<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">301k views <span>.</span> 2 weeks ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://www.ghanamusic.com/wp-content/uploads/2022/10/bxd62mmu1uy.jpg" alt=""
+                width="100%" height="250px">
+              <div class="flex">
+                <img
+                  src="https://thefader-res.cloudinary.com/private_images/w_760,c_limit,f_auto,q_auto:best/unnamed_lk6bzm/stormzy-hide-seek.jpg"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>STORMZY - HIDE & SEEK</h6>
+              </div>
+              <div class="center-div">
+                <p>Stormzy<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">15M views <span>.</span> 5 months ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3"
+                src="https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2023%2F0401%2Fr1152973_1296x729_16%2D9.jpg" alt=""
+                width="100%" height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/9TiGUllhklG_3xtvMl4w8s7Lf_LRX30eENzoRpOWSPJR3YbCH7yAZKIjxWuHC9RQ84vnuDgSSQ=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>🔥 WATKINS & SUPER JOHN McGINN 🔥 | Chelsea 0-2 Aston Villa</h6>
+              </div>
+              <div class="center-div">
+                <p>Aston Villa FC<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">455k views <span>.</span>1 day ago</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row centre-row">
+            <div class="col-lg-4">
+              <img class="mb-3"
+                src="https://i1.wp.com/ic-cdn.flipboard.com/dailymail.co.uk/b69473f7911d2c6f23f025c7f4fdd370c5449db8/_large.jpeg?resize=780,470"
+                alt="" width="100%" height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJXBqbqrCn_4LD0_9a4Q6ury9AF_OpXaCEy4_g=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>This is how Eric Tenhag motivate and changes the game on his own at old Trafford Manchester United
+                </h6>
+              </div>
+              <div class="center-div">
+                <p>Mo Hans<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">128k views <span>.</span> 1 month ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/OiBTVo-vKZk/maxresdefault.jpg" alt="" height="250px"
+                width="100%">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJV7sDpkc2QcNeb7CYgiZDG6ZWFpbaDt7SoKn75Z=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>McBrown's Kitchen with Nana Aba Anamoah | SE18EP09</h6>
+              </div>
+              <div class="center-div">
+                <p>McBrown's Kitchen<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">27k views <span>.</span> 7 days ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/ok4wpbRo8J8/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/uCdQFoM4TYfEZl8xiNLcKBYXVNeN6xF9aHaTWS8fq6k7UHzxjTBruCDDK0wCoFS4CWkBvDcccg=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>🚨🤯 Chelsea HERE WE GO! And its all TRUE: born in 2007… €20M FEE!</h6>
+              </div>
+              <div class="center-div">
+                <p>Fabrizio Romano<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">30k views <span>.</span> 1 hour ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row centre-row">
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/IvuSI_Jlt9s/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJUJ7ALzdodkOBtc-hJujW0dNP6LeW8bmRzsbakKaw=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>The waters of the Amazon | DW Documentary</h6>
+              </div>
+              <div class="center-div">
+                <p>DW Documentary<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">388k views <span>.</span> 9 days ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/VFJHb6s2hG8/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/tSIDFFQZKkmb3H0uNxXbtOo5W_vbckp3xb1JGBwRx0uGgi9ex-rRdTJgvrQ6xcCI5zYshzIv=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Tuchel Starts With Strong Win | Bayern München - Borussia Dortmund | Highlights | MD 26 – BuLi
+                  22/23...</h6>
+              </div>
+              <div class="center-div">
+                <p>Bundesliga<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">270k views <span>.</span> 17 hours ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/ZyVVGW-5ITw/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/rQV3EkcW0PjuOadF-soec3DV60qA64kXorb8NvTI0DMip_K2ZfESEq2alY5knpl57g66iJkm=s88-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Burna Boy - Rollercoaster (feat. J Balvin) [Official Music Video]</h6>
+              </div>
+              <div class="center-div">
+                <p>Burna Boy<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">6.7M views <span>.</span> 13 days ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row centre-row">
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/qbfpZ8ieqsQ/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJW9NzE7Zth0jqt_pX2KbLW0WsSxweew2_zAwXgZ=s88-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Davido - NO COMPETITION (Official Audio) ft. Asake</h6>
+              </div>
+              <div class="center-div">
+                <p>Davido<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">762k views <span>.</span> 3 days ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/Yq8JnalhBlY/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/45TbGzqJCE093eHsChzjNw8YZKMhDfAxGOQyq7IAya-QgHtCOTpl4S0pw0ZxedbzqdyoPyRG=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>The Day Cristiano Ronaldo saved Alex Ferguson & Manchester United</h6>
+              </div>
+              <div class="center-div">
+                <p>Moon Ball<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">1.6M views <span>.</span> 2 months ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/pxl8mVWBuTg/mqdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/eKCZdTtkMq1_EpWOZixDrSmsY6WhtpLPMcLJsJJ4epVOtJijY-v0Y8WuIH3L9n5UyXrLzPzNLQ=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Just Imagine if Cristiano Ronaldo Scored All These</h6>
+              </div>
+              <div class="center-div">
+                <p>Ronnie7M<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">3.3Mk views <span>.</span> 7 months ago</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row centre-row">
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/BtJQX53Syec/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJUMKQ71VEhTALTG_qgaNms16TxvAm7AoXDpaBV6oA=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Newcastle United 2 Manchester United 0 | EXTENDED Premier league...</h6>
+              </div>
+              <div class="center-div">
+                <p>Newcastle United<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">270k views <span>.</span> 12 hours ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3"
+                src="https://library.sportingnews.com/styles/crop_style_16_9_mobile_2x/s3/2023-04/Joe%20Willock%20Bruno%20Guimaraes%20Allan%20Saint-Maximin%20Newcastle%20040223.jpg?itok=lnJ6m5Y_"
+                alt="" width="100%" height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJUMKQ71VEhTALTG_qgaNms16TxvAm7AoXDpaBV6oA=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Newcastle United 2 Manchester United 0 | EXTENDED Premier league...</h6>
+              </div>
+              <div class="center-div">
+                <p>Newcastle United<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">270k views <span>.</span> 12 hours ago</p>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <img class="mb-3" src="https://i.ytimg.com/vi/0PHUvh_cEGU/maxresdefault.jpg" alt="" width="100%"
+                height="250px">
+              <div class="flex">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AL5GRJUMKQ71VEhTALTG_qgaNms16TxvAm7AoXDpaBV6oA=s68-c-k-c0x00ffffff-no-rj"
+                  alt="" width="30px" height="30px" class="lower-image">
+                <h6>Newcastle United 2 Manchester United 0 | EXTENDED Premier league...</h6>
+              </div>
+              <div class="center-div">
+                <p>Newcastle United<i class="fa-solid fa-circle-check"></i></p>
+                <p class="top">270k views <span>.</span> 12 hours ago</p>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </main>
+
+
+  <script src="bootstrap-5.3.0-alpha1-dist/js/jquery-3.6.4.min.js"></script>
+  <script src="bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
